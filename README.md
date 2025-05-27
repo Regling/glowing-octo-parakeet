@@ -8,8 +8,7 @@
 ![NVIDIA_Overlay_woa4TxNz5j](https://github.com/user-attachments/assets/af8f7736-3a51-41c7-bb87-fab3dd302fe4)
 
 ## Programs:
-First of all, make sure you have scoop installed, if you don't, follow the instructions over at scoop's [official website](https://scoop.sh/#/). After scoop is installed, you're going to need:<br/>
-> Run all commands on your terminal, preferably using Powershell
+
 - [Komorebi](https://github.com/LGUG2Z/komorebi)<br/>
 ```
 winget install LGUG2Z.komorebi
