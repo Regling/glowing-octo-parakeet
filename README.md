@@ -3,10 +3,6 @@
     <br><br><br><br>
 
 ***
-    
-    <div class=badges align="center">
-    _____________________________________________________________________________________________
-    <br><br><br><br>
   
 <div class=badges align="center">
    <img src="https://i.ibb.co/jvMTyzvf/Untitled75-20250530124753.png" width="20%"/>
@@ -20,9 +16,8 @@
 
 ![NVIDIA_Overlay_EIpvi6zRb6](https://github.com/user-attachments/assets/9f131bb2-aa6c-4e95-ac20-a0eae0e0e2e8)
 
-<div class=badges align="center">
-    _____________________________________________________________________________________________
-    <br><br><br><br>
+***
+
 <div class=badges align="center">
    <img src="INSTALLING" width="60%"/>
    <br><br><br><br>
@@ -31,9 +26,8 @@
 ```
 iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/Regling/glowing-octo-parakeet/blob/main/install.ps1'))
 ```
-<div class=badges align="center">
-    _____________________________________________________________________________________________
-    <br><br><br><br>
+
+***
 <div class=badges align="center">
    <img src="https://github.com/user-attachments/assets/7de44e8f-9d4e-4f46-a0d3-4b6f604d6ff9" width="60%"/>
    <br><br><br><br>
