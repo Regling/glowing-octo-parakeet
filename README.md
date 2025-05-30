@@ -7,6 +7,8 @@
 
 ![NVIDIA_Overlay_woa4TxNz5j](https://github.com/user-attachments/assets/af8f7736-3a51-41c7-bb87-fab3dd302fe4)
 
+![NVIDIA_Overlay_suYwWl5tYB](https://github.com/user-attachments/assets/4c1399e0-6004-457f-bab1-cc610adf15b7)
+
 ## Programs:
 
 - [Komorebi](https://github.com/LGUG2Z/komorebi)<br/>
