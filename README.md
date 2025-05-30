@@ -26,7 +26,7 @@
 
  Run this in Pwsh
 ```
-iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/Regling/glowing-octo-parakeet/main/install.ps1'))
+iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/Regling/glowing-octo-parakeet/blob/main/install.ps1'))
 ```
 <div class=badges align="center">
     _____________________________________________________________________________________________
