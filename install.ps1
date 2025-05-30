@@ -2,14 +2,14 @@
 $komorebiUrl = "https://github.com/LGUG2Z/komorebi/releases/download/nightly/komorebi-nightly-x86_64.msi"
 $whkdApiUrl = "https://api.github.com/repos/LGUG2Z/whkd/releases/latest"
 $yasbApiUrl = "https://api.github.com/repos/amnweb/yasb/releases/latest"
-$dotfilesUrl = "https://github.com/Regling/glowing-octo-parakeet/archive/refs/heads/main.zip"
+$dotfilesUrl = "https://github.com/amnweb/dotfiles/archive/refs/heads/main.zip"
 
 # Fetch the latest release information for yasb and whkd
-Write-Host "Instaling yasb..." -ForegroundColor Cyan -NoNewline
+Write-Host "Fetching yasb release info..." -ForegroundColor Cyan -NoNewline
 $yasbReleaseInfo = Invoke-RestMethod -Uri $yasbApiUrl -Headers @{ "User-Agent" = "PowerShell" }
 Write-Host " OK" -ForegroundColor Cyan
 
-Write-Host "Instaling whkd..." -ForegroundColor Cyan -NoNewline
+Write-Host "Fetching whkd release info..." -ForegroundColor Cyan -NoNewline
 $whkdReleaseInfo = Invoke-RestMethod -Uri $whkdApiUrl -Headers @{ "User-Agent" = "PowerShell" }
 Write-Host " OK" -ForegroundColor Cyan
 
@@ -25,7 +25,7 @@ $sourceFolder = Join-Path -Path $destinationFolder -ChildPath "source"
 
 # Create the source folder if it doesn't exist, without outputting to the console
 if (-Not (Test-Path -Path $sourceFolder)) {
-    Write-Host "Creating folder..." -ForegroundColor Yellow -NoNewline
+    Write-Host "Creating source folder..." -ForegroundColor Yellow -NoNewline
     New-Item -ItemType Directory -Path $sourceFolder -Force > $null
     Write-Host " OK" -ForegroundColor Yellow
 }
@@ -59,18 +59,18 @@ Write-Host "Extracting dotfiles..." -ForegroundColor Magenta -NoNewline
 Expand-Archive -Path $dotfilesZipPath -DestinationPath $dotfilesExtractPath -Force
 Write-Host " OK" -ForegroundColor Magenta
 
-# Copy all files from dotfiles/Documents to the user's Documents folder
-$dotfilesPicturesPath = Join-Path -Path $dotfilesExtractPath -ChildPath "glowing-octo-parakeet-main\Documents\PowerShell"
-$userPicturesPath = Join-Path -Path $env:USERPROFILE -ChildPath "Documents\PowerShell"
+# Copy all files from dotfiles/Pictures to the user's Pictures folder
+$dotfilesPicturesPath = Join-Path -Path $dotfilesExtractPath -ChildPath "dotfiles-main\Pictures\Wallpapers"
+$userPicturesPath = Join-Path -Path $env:USERPROFILE -ChildPath "Pictures\Wallpapers"
 if (-Not (Test-Path -Path $userPicturesPath)) {
     New-Item -ItemType Directory -Path $userPicturesPath -Force > $null
 }
-Write-Host "Copying PWsh startup settings..." -ForegroundColor Blue -NoNewline
+Write-Host "Copying pictures..." -ForegroundColor Blue -NoNewline
 Copy-Item -Path "$dotfilesPicturesPath\*" -Destination $userPicturesPath -Recurse -Force
 Write-Host " OK" -ForegroundColor Blue
 
 # Copy the .config folder to the user's home directory
-$dotfilesConfPath = Join-Path -Path $dotfilesExtractPath -ChildPath "glowing-octo-parakeet-main\.config"
+$dotfilesConfPath = Join-Path -Path $dotfilesExtractPath -ChildPath "dotfiles-main\.config"
 $userConfPath = Join-Path -Path $env:USERPROFILE -ChildPath ".config"
 
 # Ensure the .config directory exists
@@ -82,8 +82,8 @@ Write-Host "Copying .config..." -ForegroundColor Blue -NoNewline
 Copy-Item -Path "$dotfilesConfPath\*" -Destination $userConfPath -Recurse -Force
 Write-Host " OK" -ForegroundColor Blue
 
-# Set the wallpaper
-$wallpaperPath = Join-Path -Path $dotfilesExtractPath -ChildPath "Wallpaper.jpg"
+# Set the wallpaper to forest_dark_winter.jpg
+$wallpaperPath = Join-Path -Path $userPicturesPath -ChildPath "forest_dark_winter.jpg"
 if (Test-Path $wallpaperPath) {
     Write-Host "Setting wallpaper..." -ForegroundColor Green -NoNewline
     Add-Type -TypeDefinition @"
@@ -103,7 +103,7 @@ if (Test-Path $wallpaperPath) {
 # Close the yasb.exe process if it is running
 $yasbProcess = Get-Process -Name "yasb" -ErrorAction SilentlyContinue
 if ($yasbProcess) {
-    Write-Host "Relaunching yasb..." -ForegroundColor Yellow -NoNewline
+    Write-Host "Stopping yasb process..." -ForegroundColor Yellow -NoNewline
     Stop-Process -Name "yasb" -Force > $null 2>&1
     Write-Host " OK" -ForegroundColor Yellow
 }
@@ -111,7 +111,7 @@ if ($yasbProcess) {
 # Run komorebic stop --whkd if komorebic exists
 if (Get-Command "komorebic" -ErrorAction SilentlyContinue) {
     try {
-        Write-Host "Relaunching komorebic..." -ForegroundColor Yellow -NoNewline
+        Write-Host "Stopping komorebic..." -ForegroundColor Yellow -NoNewline
         & komorebic stop --whkd > $null 2>&1
         Write-Host " OK" -ForegroundColor Yellow
     } catch {
@@ -151,11 +151,11 @@ if (Get-Command "komorebic" -ErrorAction SilentlyContinue) {
 }
 
 # Run yasb
-$yasbShortcutPath = Join-Path -ChildPath "C:\Program Files\Yasb\yasb.exe"
+$yasbShortcutPath = Join-Path -Path $env:APPDATA -ChildPath "Microsoft\Windows\Start Menu\Programs\Yasb.lnk"
 if (Test-Path $yasbShortcutPath) {
     Write-Host "Starting Yasb..." -ForegroundColor Green -NoNewline
     Start-Process -FilePath $yasbShortcutPath > $null 2>&1
     Write-Host " OK" -ForegroundColor Green
 } else {
-    Write-Host "Yasb EXE not found at $yasbShortcutPath" -ForegroundColor Red
+    Write-Host "Yasb shortcut not found at $yasbShortcutPath" -ForegroundColor Red
 }
