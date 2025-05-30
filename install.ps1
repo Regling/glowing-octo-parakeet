@@ -38,24 +38,24 @@ $dotfilesZipPath = Join-Path -Path $sourceFolder -ChildPath "dotfiles.zip"
 $dotfilesExtractPath = Join-Path -Path $sourceFolder -ChildPath "dotfiles"
 
 # Download the MSI files and the ZIP file
-Write-Host "Installing latest ver of komorebi..." -ForegroundColor Green -NoNewline
+Write-Host "Downloading komorebi..." -ForegroundColor Green -NoNewline
 Invoke-WebRequest -Uri $komorebiUrl -OutFile $komorebiFilePath
 Write-Host " OK" -ForegroundColor Green
 
-Write-Host "Installing latest ver of yasb..." -ForegroundColor Green -NoNewline
+Write-Host "Downloading yasb..." -ForegroundColor Green -NoNewline
 Invoke-WebRequest -Uri $yasbUrl -OutFile $yasbFilePath
 Write-Host " OK" -ForegroundColor Green
 
-Write-Host "Installing latest ver of whkd..." -ForegroundColor Green -NoNewline
+Write-Host "Downloading whkd..." -ForegroundColor Green -NoNewline
 Invoke-WebRequest -Uri $whkdUrl -OutFile $whkdFilePath
 Write-Host " OK" -ForegroundColor Green
 
-Write-Host "Installing Dots..." -ForegroundColor Green -NoNewline
+Write-Host "Downloading dotfiles..." -ForegroundColor Green -NoNewline
 Invoke-WebRequest -Uri $dotfilesUrl -OutFile $dotfilesZipPath
 Write-Host " OK" -ForegroundColor Green
 
 # Extract the ZIP file to the dotfiles directory
-Write-Host "Extracting dots..." -ForegroundColor Magenta -NoNewline
+Write-Host "Extracting dotfiles..." -ForegroundColor Magenta -NoNewline
 Expand-Archive -Path $dotfilesZipPath -DestinationPath $dotfilesExtractPath -Force
 Write-Host " OK" -ForegroundColor Magenta
 
@@ -70,7 +70,7 @@ Copy-Item -Path "$dotfilesPicturesPath\*" -Destination $userPicturesPath -Recurs
 Write-Host " OK" -ForegroundColor Blue
 
 # Copy the .config folder to the user's home directory
-$dotfilesConfPath = Join-Path -Path $dotfilesExtractPath -ChildPath "dotfiles-main\.config"
+$dotfilesConfPath = Join-Path -Path $dotfilesExtractPath -ChildPath "glowing-octo-parakeet-main\.config"
 $userConfPath = Join-Path -Path $env:USERPROFILE -ChildPath ".config"
 
 # Ensure the .config directory exists
