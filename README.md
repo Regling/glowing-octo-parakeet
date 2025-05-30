@@ -2,7 +2,7 @@
     <img src="https://github.com/user-attachments/assets/ecaa8a24-388a-46d9-93ec-00604c144575" width="60%"/>
     <br><br><br><br>
 <div class=badges align="center">
-    ___________________________________________________________________________________________
+    _____________________________________________________________________________________________
     <br><br><br><br>
   
 <div class=badges align="center">
@@ -18,7 +18,7 @@
 ![NVIDIA_Overlay_suYwWl5tYB](https://github.com/user-attachments/assets/4c1399e0-6004-457f-bab1-cc610adf15b7)
 
 <div class=badges align="center">
-    ___________________________________________________________________________________________________________________
+    _____________________________________________________________________________________________
     <br><br><br><br>
 <div class=badges align="center">
    <img src="https://i.ibb.co/mVzrxhgz/Untitled75-20250530124531.png" width="60%"/>
