@@ -3,10 +3,6 @@
     <br><br><br><br>
 
 ***
-  
-<div class=badges align="center">
-   <img src="https://i.ibb.co/jvMTyzvf/Untitled75-20250530124753.png" width="20%"/>
-   <br><br><br><br>
 
 ![NVIDIA_Overlay_qxud38egk7](https://github.com/user-attachments/assets/c21dbbc0-608e-460d-ad56-a40eb212fb1d)
 
